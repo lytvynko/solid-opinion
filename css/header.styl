@@ -1,0 +1,364 @@
+.test-header {
+  width: 100%;
+  background-color: #13325D;
+  display: flex;
+  justify-content: space-between
+  padding: 0 15px
+  box-sizing: border-box;
+
+  &__logoNav {
+    display: flex;
+
+    &__logo {
+      background-image: url("https://money.usnews.com/static/img/usn-logo-large.svg");
+      height: 32px;
+      width: 120px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin: 14px 8px 0 0;
+
+    }
+    &__unit {
+
+
+      &__text {
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 55px;
+        color: #fff;
+        display: block;
+        text-decoration: none;
+
+
+        &:after {
+          content: '»';
+          margin: 0 14px 0 8px;
+        }
+      }
+    }
+    &__nav {
+      display: flex;
+      list-style: none;
+
+      &__item {
+        position: relative;
+        margin-right: 28px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &>a {
+          color: #c0cadd;
+          font-weight: 400;
+          line-height: 55px;
+          max-height: 55px;
+          text-decoration: none;
+          display: block;
+          box-sizing:border-box;
+
+          &:hover {
+            color: #fff;
+            border-bottom: 3px solid #2C7EF0;
+
+          }
+        }
+
+        &__Wrap {
+          display: none;
+          position: absolute;
+          left: 50%;
+
+          &__submenu {
+            list-style: none;
+
+            background-color: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, .75);
+            position: relative;
+            left:-50%;
+            width: 220px;
+            padding: 20px;
+            z-index: 999;
+            top: 100%;
+
+            &__text {
+              color: #333;
+              line-height: 1rem;
+              margin-bottom: .75rem;
+              font-size: 1rem;
+              font-weight: 500;
+            }
+            &__item {
+              margin-bottom: .75rem;
+
+              & > a {
+                text-decoration: none;
+                color: #333;
+                font-size: .875rem;
+
+                &:hover {
+                  color: #888;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__burgerBtn {
+    display: flex;
+    align-items: center;
+
+    &__btn {
+      background-color: #FFF;
+      width: 15px;
+      height: 3px
+      position: relative;
+      cursor: pointer;
+
+
+      &:before {
+        content: '';
+        position: absolute;
+        background-color: #FFF;
+        width: 15px;
+        height: 3px;
+        top: 6px;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        background-color: #FFF;
+        width: 15px;
+        height: 3px;
+        top: -6px;
+      }
+    }
+
+
+  }
+}
+
+.test-header__logoNav__nav__item:hover .test-header__logoNav__nav__item__Wrap {
+    display: block;
+  }
+
+
+
+
+
+.test-nav {
+  width: 230px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  right: -270px;
+  padding: 15px 15px;
+  -webkit-transition: right 0.3s;
+  -moz-transition: right 0.3s;
+  transition: right 0.3s;
+  background: #10294B;
+  z-index: 2000;
+
+  &__sidenav {
+    list-style: none;
+    margin-bottom: 35px;
+
+    &__text {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 25px;
+
+      &._1 {
+        margin: 0 0 -5px 0;
+      }
+
+    }
+    &__link {
+      margin: 15px 0;
+
+
+      &._small {
+        margin: 10px 0;
+      }
+
+      &__a {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #c0cadd;
+        display: block;
+        text-decoration: none;
+
+        &._small {
+          font-size: .875rem
+        }
+
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+        &._1 {
+
+          &:after {
+            content: '»';
+            margin: 0 14px 0 8px;
+          }
+        }
+      }
+
+
+
+    }
+  }
+}
+
+
+
+
+.nav-toggle {
+  position: absolute;
+  right: 290px;
+  top: 30px;
+  cursor: pointer;
+  background-color: #FFF;
+  width: 15px;
+  height: 3px;
+  z-index: 2001;
+
+}
+
+.nav-toggle:after {
+  content: '';
+  position: absolute;
+  background-color: #FFF;
+  width: 15px;
+  height: 3px;
+  top: -6px;
+}
+
+.nav-toggle:before {
+  content: '';
+  position: absolute;
+  background-color: #FFF;
+  width: 15px;
+  height: 3px;
+  top: 6px;
+}
+
+#nav-toggle {
+  position: absolute;
+  display: none;
+}
+
+
+#nav-toggle:checked ~ .test-nav > .nav-toggle {
+  right: 20px;
+  width: auto;
+  height: auto;
+
+}
+
+#nav-toggle:checked ~ .test-nav > .nav-toggle:after {
+  content: '\2715';
+  color: #FFF;
+  width: 0;
+  height: 0;
+  right: 15px;
+  top: -10px;
+  font-weight: 500;
+}
+
+#nav-toggle:checked ~ .test-nav > .nav-toggle:before {
+  content: '';
+  width: 0;
+  height: 0;
+}
+
+
+#nav-toggle:checked ~ .test-nav {
+  right: 0;
+  overflow-y: auto;
+}
+
+
+
+
+#nav-toggle:checked ~ .test-mainWrapper {
+  -webkit-transform: translateX(-230px);
+  -moz-transform: translateX(-230px);
+  transform: translateX(-230px);
+  transition: 0.3s;
+
+}
+
+
+
+@media (max-width: 1024px){
+  .test-header__logoNav__nav {
+    display: none;
+  }
+}
+
+
+.test-navSocials {
+  display: flex;
+  margin-top: 30px;
+
+  &__item {
+
+    height: 20px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 15px 0 0;
+    display: block;
+    cursor: pointer;
+
+    &._facebook {
+      background-image: url("../img/face1.svg");
+
+      &:hover {
+        background-image: url("../img/face.svg");
+      }
+    }
+    &._twitter {
+      background-image: url("../img/twit1.svg");
+      &:hover {
+        background-image: url("../img/twit.svg");
+      }
+    }
+    &._google {
+      background-image: url("../img/goo1.svg");
+      height: 22px;
+      width: 22px;
+      &:hover {
+        background-image: url("../img/goo.svg");
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
